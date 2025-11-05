@@ -1,0 +1,105 @@
+
+</head>
+<body>
+  <header>
+    <h1>CATÁLOGO DE SERVICIOS 🔥</h1>
+    <div class="badges">
+      <span>💬 Atención personalizada</span>
+      <span>⚡ Entrega inmediata</span>
+      <span>🛠️ Soporte</span>
+    </div>
+    <p>Marcá lo que quieras y enviame tu pedido por WhatsApp.</p>
+  </header>
+
+  <main>
+    <section id="streaming">
+      <h2>🎞️ Streaming Premium</h2>
+      <p class="subtext">Elegí los servicios que te interesen.</p>
+
+      <div class="casino-container">
+        <div class="card"><label><input type="checkbox" data-name="Disney+ 1 disp." /><span class="name">Disney+ 1 disp.</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Disney+ cuenta completa" /><span class="name">Disney+ (cuenta completa)</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Netflix Premium" /><span class="name">Netflix Premium</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Prime Video 1 disp." /><span class="name">Prime Video 1 disp.</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Paramount+" /><span class="name">Paramount+</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Max (HBO)" /><span class="name">Max (HBO)</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Apple TV+" /><span class="name">Apple TV+</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Vix Premium" /><span class="name">Vix Premium</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Crunchyroll" /><span class="name">Crunchyroll</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Mubi" /><span class="name">Mubi</span></label></div>
+      </div>
+    </section>
+
+    <section id="digitales">
+      <h2>🛠️ Servicios Digitales y Suscripciones</h2>
+      <div class="casino-container">
+        <div class="card"><label><input type="checkbox" data-name="Canva Pro" /><span class="name">Canva Pro</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="ChatGPT" /><span class="name">ChatGPT</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Gemini" /><span class="name">Gemini</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="CapCut Pro" /><span class="name">CapCut Pro</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Spotify" /><span class="name">Spotify</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="YouTube Premium" /><span class="name">YouTube Premium</span></label></div>
+      </div>
+    </section>
+
+    <section id="tvonline">
+      <h2>📡 TV Online</h2>
+      <p class="subtext">Consultá disponibilidad y combinaciones.</p>
+      <div class="casino-container">
+        <div class="card"><label><input type="checkbox" data-name="Flow Full 1 disp." /><span class="name">Flow Full 1 disp.</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Flow Full (cuenta completa)" /><span class="name">Flow Full (cuenta completa)</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="TV Online Android" /><span class="name">TV Online Android</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="TV Online Smart TV" /><span class="name">TV Online Smart TV</span></label></div>
+      </div>
+    </section>
+
+    <section id="juegos">
+      <h2>🎮 Juegos y Suscripciones</h2>
+      <div class="casino-container">
+        <div class="card"><label><input type="checkbox" data-name="Game Pass Ultimate" /><span class="name">Game Pass Ultimate</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Prime Gaming" /><span class="name">Prime Gaming</span></label></div>
+      </div>
+    </section>
+
+    <footer>
+      TitoDigitale — Todos los servicios garantizados. <br />
+      ¿Necesitás algo especial? <a href="#" id="linkWsFooter">Escribime</a>.
+    </footer>
+  </main>
+
+  <div class="cta-bar">
+    <a id="btnEnviar" class="btn-wa" href="#" rel="noopener">Enviar pedido por WhatsApp</a>
+  </div>
+
+  <script>
+    const PHONE = "54929206193"; // número de Tito
+
+    function armarMensaje() {
+      const checks = document.querySelectorAll('input[type="checkbox"]:checked');
+      if (!checks.length) return "Hola TitoDigitale, quiero info sobre tus servicios.";
+      const items = [];
+      checks.forEach(ch => {
+        const nombre = ch.getAttribute('data-name') || 'Servicio';
+        items.push("• " + nombre);
+      });
+      return "Hola TitoDigitale, quiero pedir/consultar:\n" + items.join("\n") + "\n---\nEnviado desde el catálogo.";
+    }
+
+    function enviarWhatsApp() {
+      const msg = encodeURIComponent(armarMensaje());
+      const url = https://wa.me/${PHONE}?text=${msg};
+      window.location.href = url;
+    }
+
+    document.getElementById('btnEnviar').addEventListener('click', (e) => {
+      e.preventDefault();
+      enviarWhatsApp();
+    });
+
+    document.getElementById('linkWsFooter').addEventListener('click', (e) => {
+      e.preventDefault();
+      enviarWhatsApp();
+    });
+  </script>
+</body>
+</html>
