@@ -1,3 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo de Servicios — Ftstreaming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-1: #f7f9fb;
+      --bg-2: #f2f5f8;
+      --accent: #2c3e50;        /* azul profundo para acentos */
+      --accent-soft: #56708a;   /* azul más suave */
+      --muted: #6b7280;         /* texto secundario */
+      --text: #0b2238;          /* color principal del texto */
+      --card: #ffffff;          /* fondo de cartas */
+      --border: #e6e9ee;        /* borde sutil */
+      --cta: #1f6fb7;           /* color del botón principal */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
+      text-align: center;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height: 1.4;
+    }
+
+    header {
+      padding: 24px 16px 14px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.85);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+    }
+
+    header h1 {
+      color: var(--accent);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    header .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 8px 0 6px;
+    }
+
+    header .badges span {
+      background: #f6f8fa;
+      border: 1px solid var(--border);
+      color: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    main { max-width: 900px; margin: 0 auto; padding: 28px 16px 120px; }
+
+    section { margin: 34px 0; }
+    section h2 {
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .subtext { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; }
+
+    .casino-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(16,24,40,0.04);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      text-align: left;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(16,24,40,0.06);
+    }
+    .card label { display: flex; align-items: center; gap: 12px; width: 100%; cursor: pointer; }
+    .card input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--cta); /* moderno y sencillo */
+    }
+    .name { font-weight: 700; color: var(--accent); }
+
+    .cta-bar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.96);
+      border-top: 1px solid var(--border);
+      padding: 14px 16px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 -6px 18px rgba(16,24,40,0.04);
+    }
+
+    .btn-wa {
+      width: 100%;
+      max-width: 900px;
+      background: linear-gradient(180deg, var(--cta), #155a9b);
+      color: #fff;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 6px 14px rgba(31,111,183,0.16);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-wa:active { transform: translateY(1px); }
+    footer { color: var(--muted); font-size: 0.9rem; margin-top: 28px; }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* Responsive */
+    @media (max-width: 680px) {
+      .casino-container { grid-template-columns: 1fr; gap: 12px; padding: 0 6px; }
+      header { padding-top: 18px; }
+      main { padding-bottom: 160px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Catálogo de Servicios — Ftstreaming</h1>
+    <div class="badges">
+      <span>Entrega inmediata</span>
+      <span>Soporte 24/7</span>
+      <span>Pago seguro</span>
+    </div>
+    <p>Elige los servicios que te interesen y contacta por nuestro canal.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Nuestros Servicios</h2>
+      <p class="subtext">Servicios disponibles para contratación.</p>
+
+      <div class="casino-container">
+        <div class="card">
+          <label>
+            <input type="checkbox" />
+            <div>
+              <div class="name">Servicio A</div>
+              <div class="subtext" style="margin-top:6px;">Descripción breve del servicio A.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="card">
+          <label>
+            <input type="checkbox" />
+            <div>
+              <div class="name">Servicio B</div>
+              <div class="subtext" style="margin-top:6px;">Descripción breve del servicio B.</div>
+            </div>
+          </label>
+        </div>
+
+        <!-- Añade más cards según hace falta -->
+      </div>
+    </section>
+
+    <footer>
+      <p>¿Dudas? <a href="#">Contáctanos</a></p>
+    </footer>
+  </main>
+
+  <div class="cta-bar">
+    <a class="btn-wa" href="#">Contactar por WhatsApp</a>
+  </div>
+</body>
+</html>
 
 </head>
 <body>
