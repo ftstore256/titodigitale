@@ -3,48 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Catálogo de Servicios — Ftstreaming</title>
+  <title>Catálogo de Servicios — TitoDigitale</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-1: #f7f9fb;
-      --bg-2: #f2f5f8;
-      --accent: #2c3e50;        /* azul profundo para acentos */
-      --accent-soft: #56708a;   /* azul más suave */
-      --muted: #6b7280;         /* texto secundario */
-      --text: #0b2238;          /* color principal del texto */
-      --card: #ffffff;          /* fondo de cartas */
-      --border: #e6e9ee;        /* borde sutil */
-      --cta: #1f6fb7;           /* color del botón principal */
+      --bg: #0d0d0d;
+      --gold: #ffd700;
+      --gold-soft: #ffe27a;
+      --wa: #25d366;
+      --text: #f5f5f5;
+      --card: #141414;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
     body {
-      background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      background: radial-gradient(circle at center, #beb2b2 0%, #000 100%);
       font-family: "Poppins", sans-serif;
       color: var(--text);
       text-align: center;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height: 1.4;
     }
 
     header {
-      padding: 24px 16px 14px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.85);
+      padding: 28px 16px 16px;
+      border-bottom: 2px solid var(--gold);
+      background: #0e0e0e;
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: blur(6px);
     }
 
     header h1 {
-      color: var(--accent);
+      color: var(--gold);
       font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 700;
-      margin-bottom: 8px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     }
 
     header .badges {
@@ -52,38 +43,38 @@
       flex-wrap: wrap;
       gap: 8px;
       justify-content: center;
-      margin: 8px 0 6px;
+      margin: 10px 0 6px;
     }
 
     header .badges span {
-      background: #f6f8fa;
-      border: 1px solid var(--border);
-      color: var(--accent-soft);
+      background: #111a2a;
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      color: var(--gold-soft);
       padding: 4px 10px;
       border-radius: 999px;
       font-size: 0.85rem;
     }
 
     header p {
-      color: var(--muted);
-      font-size: 0.92rem;
+      color: var(--gold-soft);
+      font-size: 0.9rem;
     }
 
-    main { max-width: 900px; margin: 0 auto; padding: 28px 16px 120px; }
+    main { max-width: 900px; margin: 0 auto; padding: 24px 16px 100px; }
 
     section { margin: 34px 0; }
     section h2 {
-      color: var(--accent);
+      color: var(--gold);
       margin-bottom: 12px;
-      font-size: 1.25rem;
-      font-weight: 600;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+      font-size: 1.3rem;
     }
-    .subtext { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; }
+    .subtext { color: var(--gold-soft); font-size: 0.95rem; margin-bottom: 16px; }
 
     .casino-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      gap: 20px;
       max-width: 900px;
       margin: 0 auto;
       padding: 0;
@@ -91,10 +82,10 @@
 
     .card {
       background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(16,24,40,0.04);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      border: 2px solid var(--gold);
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -103,119 +94,142 @@
       text-align: left;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 22px rgba(16,24,40,0.06);
-    }
+    .card:hover { transform: scale(1.03); box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
     .card label { display: flex; align-items: center; gap: 12px; width: 100%; cursor: pointer; }
-    .card input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      accent-color: var(--cta); /* moderno y sencillo */
-    }
-    .name { font-weight: 700; color: var(--accent); }
+    .card input[type="checkbox"] { width: 20px; height: 20px; }
+    .name { font-weight: 700; color: var(--gold-soft); }
 
     .cta-bar {
       position: fixed;
       left: 0; right: 0; bottom: 0;
-      background: rgba(255,255,255,0.96);
-      border-top: 1px solid var(--border);
+      background: linear-gradient(to top, #0b0b0b 65%, rgba(11, 11, 11, 0.6));
+      border-top: 2px solid var(--gold);
       padding: 14px 16px;
       display: grid;
       place-items: center;
-      box-shadow: 0 -6px 18px rgba(16,24,40,0.04);
     }
 
     .btn-wa {
       width: 100%;
       max-width: 900px;
-      background: linear-gradient(180deg, var(--cta), #155a9b);
+      background: var(--wa);
       color: #fff;
       border: 0;
       border-radius: 999px;
       padding: 12px 18px;
       font-weight: 700;
       font-size: 1rem;
-      box-shadow: 0 6px 14px rgba(31,111,183,0.16);
+      box-shadow: 0 6px 14px rgba(37, 211, 102, 0.35);
       cursor: pointer;
       text-decoration: none;
     }
 
-    .btn-wa:active { transform: translateY(1px); }
-    footer { color: var(--muted); font-size: 0.9rem; margin-top: 28px; }
-    footer a { color: var(--accent); text-decoration: none; }
+    .btn-wa:active { transform: scale(0.98); }
+    footer { color: var(--gold-soft); font-size: 0.9rem; margin-top: 28px; }
+    footer a { color: var(--gold); text-decoration: none; }
+    /* ---- Logo en header (tamaño contenido y responsivo) ---- */
 
-    /* Responsive */
-    @media (max-width: 680px) {
-      .casino-container { grid-template-columns: 1fr; gap: 12px; padding: 0 6px; }
-      header { padding-top: 18px; }
-      main { padding-bottom: 160px; }
-    }
+}
+/* Header con logo a la izquierda y título centrado en la zona restante */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border, rgba(255,255,255,0.08));
+  background: rgba(0,0,0,0.7); /* ajusta si usas tema claro/oscuro */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Contenedor fijo para el logo (evita que el logo crezca mucho) */
+.logo-wrap {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 6px; /* opcional */
+}
+
+/* Tamaño contenido, no tan grande ni tan chico; sin borde circular */
+.logo {
+  width: 80px;        /* tamaño por defecto (ajusta: 60px, 72px, 90px según prefieras) */
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px; /* pequeño radio, si prefieres sin radio: 0 */
+  border: none;
+  display: block;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25); /* sutil */
+}
+
+/* Zona con el título y badges. Ocupa el resto del ancho y centra el contenido */
+.header-main {
+  flex: 1 1 auto;
+  text-align: center;
+  padding-right: 12px;
+}
+
+/* Título más contenido */
+.header-main h1 {
+  color: var(--gold, #ffd700); /* ajusta segun paleta */
+  font-size: clamp(1.2rem, 2.8vw, 1.9rem);
+  margin-bottom: 8px;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(0,0,0,0.35); /* opcional */
+}
+
+/* Badges y descripción permanecen centrados bajo el título */
+header .badges {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.header-desc {
+  color: var(--gold-soft, #ffe27a);
+  font-size: 0.95rem;
+  margin-top: 0;
+}
+
+/* Responsivo: en pantallas pequeñas apilar y reducir logo */
+@media (max-width: 680px) {
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 12px;
+  }
+  .logo {
+    width: 48px;   /* más pequeño en móviles */
+    margin-bottom: 8px;
+  }
+  .header-main { text-align: center; }
+}
+
   </style>
 </head>
 <body>
-  <header>
-    <h1>Catálogo de Servicios — Ftstreaming</h1>
+<header class="site-header">
+  <div class="logo-wrap">
+    <!-- cambia 'ruta_del_logo.png' por la ruta real de tu imagen -->
+    <img src="logotito.jpg" alt="logotito" class="logo" />
+  </div>
+
+  <div class="header-main">
+    <h1>Catálogo de Servicios — TitoDigitale</h1>
+
     <div class="badges">
       <span>Entrega inmediata</span>
       <span>Soporte 24/7</span>
       <span>Pago seguro</span>
     </div>
-    <p>Elige los servicios que te interesen y contacta por nuestro canal.</p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Nuestros Servicios</h2>
-      <p class="subtext">Servicios disponibles para contratación.</p>
-
-      <div class="casino-container">
-        <div class="card">
-          <label>
-            <input type="checkbox" />
-            <div>
-              <div class="name">Servicio A</div>
-              <div class="subtext" style="margin-top:6px;">Descripción breve del servicio A.</div>
-            </div>
-          </label>
-        </div>
-
-        <div class="card">
-          <label>
-            <input type="checkbox" />
-            <div>
-              <div class="name">Servicio B</div>
-              <div class="subtext" style="margin-top:6px;">Descripción breve del servicio B.</div>
-            </div>
-          </label>
-        </div>
-
-        <!-- Añade más cards según hace falta -->
-      </div>
-    </section>
-
-    <footer>
-      <p>¿Dudas? <a href="#">Contáctanos</a></p>
-    </footer>
-  </main>
-
-  <div class="cta-bar">
-    <a class="btn-wa" href="#">Contactar por WhatsApp</a>
+    <p class="header-desc">Elige los servicios que te interesen y contacta por nuestro canal.</p>
   </div>
-</body>
-</html>
+</header>
 
-</head>
-<body>
-  <header>
-    <h1>CATÁLOGO DE SERVICIOS 🔥</h1>
-    <div class="badges">
-      <span>💬 Atención personalizada</span>
-      <span>⚡ Entrega inmediata</span>
-      <span>🛠️ Soporte</span>
-    </div>
-    <p>Marcá lo que quieras y enviame tu pedido por WhatsApp.</p>
-  </header>
 
   <main>
     <section id="streaming">
@@ -228,6 +242,7 @@
         <div class="card"><label><input type="checkbox" data-name="Netflix Premium" /><span class="name">Netflix Premium</span></label></div>
         <div class="card"><label><input type="checkbox" data-name="Prime Video 1 disp." /><span class="name">Prime Video 1 disp.</span></label></div>
         <div class="card"><label><input type="checkbox" data-name="Paramount+" /><span class="name">Paramount+</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="Prime Video" /><span class="name">Prime Video</span></label></div>
         <div class="card"><label><input type="checkbox" data-name="Max (HBO)" /><span class="name">Max (HBO)</span></label></div>
         <div class="card"><label><input type="checkbox" data-name="Apple TV+" /><span class="name">Apple TV+</span></label></div>
         <div class="card"><label><input type="checkbox" data-name="Vix Premium" /><span class="name">Vix Premium</span></label></div>
@@ -254,8 +269,8 @@
       <div class="casino-container">
         <div class="card"><label><input type="checkbox" data-name="Flow Full 1 disp." /><span class="name">Flow Full 1 disp.</span></label></div>
         <div class="card"><label><input type="checkbox" data-name="Flow Full (cuenta completa)" /><span class="name">Flow Full (cuenta completa)</span></label></div>
-        <div class="card"><label><input type="checkbox" data-name="TV Online Android" /><span class="name">TV Online Android</span></label></div>
-        <div class="card"><label><input type="checkbox" data-name="TV Online Smart TV" /><span class="name">TV Online Smart TV</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="TV Digital Android" /><span class="name">TV Digital Android</span></label></div>
+        <div class="card"><label><input type="checkbox" data-name="TV Digital Smart TV" /><span class="name">TV Digital Smart TV</span></label></div>
       </div>
     </section>
 
@@ -278,22 +293,22 @@
   </div>
 
   <script>
-    const PHONE = "54929206193"; // número de Tito
+    const PHONE = "5492920261934"; // número de Tito
 
     function armarMensaje() {
       const checks = document.querySelectorAll('input[type="checkbox"]:checked');
-      if (!checks.length) return "Hola TitoDigitale, quiero info sobre tus servicios.";
+      if (!checks.length) return "Hola Tito, quiero info sobre tus servicios.";
       const items = [];
       checks.forEach(ch => {
         const nombre = ch.getAttribute('data-name') || 'Servicio';
         items.push("• " + nombre);
       });
-      return "Hola TitoDigitale, quiero pedir/consultar:\n" + items.join("\n") + "\n---\nEnviado desde el catálogo.";
+      return "Hola Tito, quiero pedir/consultar:\n" + items.join("\n") + "\n---\nEnviado desde el catálogo.";
     }
 
     function enviarWhatsApp() {
       const msg = encodeURIComponent(armarMensaje());
-      const url = https://wa.me/${PHONE}?text=${msg};
+      const url = `https://wa.me/${PHONE}?text=${msg}`;
       window.location.href = url;
     }
 
